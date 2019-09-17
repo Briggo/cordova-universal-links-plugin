@@ -3,6 +3,7 @@
   'use strict';
   var path = require('path');
   var xcode = require('xcode');
+  var glob = require('glob');
 
   var xmlHelper = require('../lib/xmlHelper.js');
   var DEFAULT_SCHEME = 'http';
@@ -151,7 +152,7 @@
     // get xcodeproj
     var projectRoot = getProjectRoot(context);
     var projectPath = path.join(projectRoot, 'platforms', 'ios');
-    var projectFiles = context.require('glob').sync(path.join(projectPath, '*.xcodeproj', 'project.pbxproj'));
+    var projectFiles = glob.sync(path.join(projectPath, '*.xcodeproj', 'project.pbxproj'));
     if (projectFiles.length === 0) return;
     var pbxPath = projectFiles[0];
     var xcodeproj = xcode.project(pbxPath);
