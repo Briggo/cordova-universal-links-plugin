@@ -32,6 +32,7 @@
     }
   ],
   "dependencies": {
+    "fs": "0.0.1-security",
     "glob": "^7.1.4",
     "mkpath": "^1.0.0",
     "node-version-compare": "^1.0.1",
@@ -39,6 +40,7 @@
     "q": "^1.5.1",
     "request": "^2.81.0",
     "rimraf": ">=2.4",
+    "shelljs": "^0.8.3",
     "xcode": "^1.0.0",
     "xml2js": "^0.4.18"
   },

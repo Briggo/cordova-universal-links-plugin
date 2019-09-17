@@ -4,6 +4,8 @@
   var path = require('path');
   var xcode = require('xcode');
   var glob = require('glob');
+  var fs = require('fs');
+  var shelljs = require('shelljs');
 
   var xmlHelper = require('../lib/xmlHelper.js');
   var DEFAULT_SCHEME = 'http';
@@ -165,7 +167,7 @@
       'xcode': xcodeproj,
       'write': function () {
         // save xcodeproj
-        var fs = context.requireCordovaModule('fs');
+        // var fs = context.requireCordovaModule('fs');
         fs.writeFileSync(pbxPath, xcodeproj.writeSync());
 
         // pull framework dependencies
@@ -177,7 +179,7 @@
         } catch (e) {}
         // If there are no framework references, remove this file
         if (Object.keys(frameworks).length === 0) {
-          return context.requireCordovaModule('shelljs').rm('-rf', frameworksFile);
+          return shelljs.rm('-rf', frameworksFile);
         }
 
         // save frameworks
